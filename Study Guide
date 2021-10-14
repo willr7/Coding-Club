@@ -14,6 +14,7 @@ membership operators - used to check if something is in a list ('in', 'not in')
 concatenation - adding two strings (see line 41)
 method - a function that is available because of an objects type (upper(), lower(), append()) (see line 51)
 index - the position of an element in a list
+syntax - writing code so that it can be correctly interpreted by your computer
 
 
 
@@ -47,12 +48,38 @@ small_talk = generic_greeting + "\n" + generic_response
 name = "shaqiqi"
 print("My name is " + name)
 
-
 Misc info:
 # This will print "Coding club is so much fun"
 real_club_review = "codINg CluB iS sO mUcH FUn"
 print(real_club_review.capitalize())
 # This will print "CODING CLUB IS SO MUCH FUN!"
 print(real_club_review.upper())
-# you can think of a string as a list of characters
+# you can think of a string as a list of characters (see the lists section for more information)
 # this means you can access certain elements of a string
+print(name[4])
+print(real_club_review[:5])
+
+
+Lists
+an ordered, changeable collection of variables called 'elements' ([4, 6, 10], ["How's it going", "What's up", "What's poppin"], [["One", "Two", "Three"], [1, 2, 3], ["1", "10", "11"]])
+
+How to initialize:
+fruits = ["Durian", "Rambutan", "Lychee"]
+fav_numbers = [28, 4, 3]
+
+Lists are ordered by index. The first element in a list is at index 0.
+The index is used to access elements from a list
+print(fruits[0])
+
+Splits
+You can access multiple elements from a list by using a split
+syntax: fruits[0:2] accesses the first two elements (the first number is inclusive, the second number is exclusive)
+fruits[1:3] accesses the last two elements (notice how the second number is 3, but the index of the last element is 2)
+fruits[:2] is the same as fruits[0:2] (it assumes that you are starting at 0)
+fruits[1:] is the same as fruits[1:3] (it assumes that you want to access every element from 1 to the end of the list)
+examples (try it yourself :O):
+vowels = ['a', 'e', 'i', 'o', 'u']
+print("The first three vowels are: " + vowels[:3])
+print("The last three vowels are: " + vowels[2:])
+print("The middle three vowels are: " + vowels[1:4])
+
