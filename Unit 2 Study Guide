@@ -2,6 +2,8 @@ Unit 2: If Statements and loops
 
 
 Important vocab:
+iteration - in a loop, an iteration is one cycle through the loop
+indexing variable - the variable that is changed from one iteration to the next. 'i' is generally the name used for this variable
 
 
 
@@ -77,3 +79,145 @@ elif grade >= 80 and grade < 90:
 else:
   print("AMAZING :DDDDD")
 
+
+
+Loops
+2 types: For loops and while loops
+While loops run until a condition is false
+For loops run for a set number of times
+
+while loop syntax:
+while some condition is true:
+  execute some code
+  
+examples:
+a = 5
+
+# this while loop will add one to the value of a until a is greater than or equal to 10
+while a < 10:
+  a += 1
+  
+side note:
+to get input in python, we use input()
+the question that you want to display goes inside the parantheses, and you can set a variable as being equal to the user's response
+
+#this will store the users name in a the variable 'name'
+name = input("What is your name? \n")
+
+
+# This while loop will continue to ask the same question until the user gets the question right
+question = "What is the tallest building in the world \n(a) Eiffel Tower \n(b) Berj Khalifa \n(c) Empire State Building \n(d) World Trade Center \n"
+
+answer = input(question)
+while answer != 'b':
+  answer = input("Incorrect, try again \n")
+else:
+  print("Correct!")
+# notice the else statement. This will execute once the condition in the while loop is false, which means that in this case it will print "Correct!" when the user types 'b'
+
+
+For loops
+A for loop will iterate through every element in a list using an indexing variable
+
+Syntax:
+for indexing variable in some list:
+  execute some code
+
+side note (will be important later)
+if you want to know what iteration you are on when going through a list, you can use index()
+ex.
+fruits = ["banana", "apple", "pear"]
+
+# try these yourself to understand how .index works
+for fruit in fruits:
+  print(fruit)
+  print(fruits.index(fruit))
+
+print(fruits.index("apple"))
+  
+ 
+examples:
+characters = ["001", "067", "456", "199", "218"]
+
+for character in characters:
+  print(character)
+
+# remember range()?
+# This will return a list from 0 to 99
+for i in range(100)
+  print(i)
+
+# This adds three strings to the fav_characters list and prints the characters
+fav_characters = []
+
+for i in range(3):
+  fav_characters.append(input("Name a character from your favorite tv show"))
+
+print(f"Three characters in your favorite show are: {fav_characters[0]}, {fav_characters[1]}, and {fav_characters[2]}")
+  
+
+# Fizz buzz
+for i in range(1, 101):
+  if i % 15:
+    print("FizzBuzz")
+  elif i % 3 == 0:
+    print("Fizz")
+  elif i % 5 == 0:
+    print("Buzz")
+  else:
+    print(i)
+
+# alternate solution to fizz buzz
+# This is a more concise solution
+# notice how the if statements have the code that they execute in the same line
+# this is a shortcut in python to make if statements more compact, but it only works if the if statement has one line of code to execute
+# also, notice how this solution doesn't use elif or else statements. What would happen if the middle if statement was changed to an elif and the last if was an else?
+for i in range(1, 101):
+  temp = ''
+  if i % 3 == 0: temp += 'Fizz'
+  if i % 5 == 0: temp += "Buzz"
+  if temp == '': print(i)
+
+
+Exercise:
+Trivia
+
+Make a list of questions (see example under while loop examples) and a list of answers. Ask the questions using a for loop. If the user gets the question wrong, ask the question again until the user gets the question right (use a while loop).
+Optional: print the users score at the end of the quiz
+
+
+Steps:
+first, make a list of questions
+ex.
+questions = ["What is the tallest building in the world? \n(a) Eiffel Tower \n(b) Berj Khalifa \n(c) Empire State Building \n(d) World Trade Center \n", "What is my favorite color? \n(a) Blue \n(b) Red \n(c) Purple \n(d) Rich Mahogany \n", "What is the longest river in the world? \n(a) Nile \n(b) Mississippi \n(c) Colorado \n(d) Amazon \n"]
+
+next, make a list of the correct answers
+answers = ['b', 'd', 'a']
+
+now, you can iterate through each question in the list of questions with a for loop
+for question in questions:
+  response = input(question)
+
+Finally, we can use a while loop and index() to get the users input until they get the question right, and when they do we can print "Correct!" with an else statement
+for question in questions:
+  response = input(question)
+  while response != answers[questions.index(question)]:
+    response = input("Incorrect, try again \n")
+  else:
+    print("Correct! \n")
+
+How to get the users score:
+score = 0
+
+for question in questions:
+  response = input(question)
+  
+  if response == answers[questions.index(question)]:
+    score += 1
+  
+  while response != answers[questions.index(question)]:
+    response = input("Incorrect, try again \n")
+  else:
+    print("Correct! \n")
+
+print("Your score: {}".format(score))
