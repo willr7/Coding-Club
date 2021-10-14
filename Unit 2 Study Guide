@@ -1,0 +1,79 @@
+Unit 2: If Statements and loops
+
+
+Important vocab:
+
+
+
+
+If statements:
+checks a conditional statement and if it returns true, then it executes some code
+conditional statements can use many different operators
+Here is a more comprehensive list of all the operators: https://www.w3schools.com/python/python_operators.asp
+
+syntax:
+if some condition:
+  execute some code
+  
+examples:
+# This example uses the greater than comparison operator
+if (x + 3) > (y / 5):
+  print("x is 3 greater than y divided by 5")
+
+# This example uses the 'and' logical operator
+if a >= 5 and a <= 10:
+  print("a is greater than or equal to 5 and less than or equal to 10")
+
+# This example uses the 'in' membership operator
+fruit = "Apple"
+if 'a' in fruit or x % 3 == 0:
+  print("either the letter a is in the string fruit, or x is divisible by 3")
+  
+
+Elif and Else statements
+if an if statement is evaluated as false, then python will go on to check any elif or else statements that follow
+elif: if the preceding if statement is false, then it will check another condition
+else: if the preceding if statement is false, then it will execute the code
+
+syntax:
+if some condition:
+  execute some code
+elif some other condition:
+  execute some code
+else:
+  execute some code
+  
+example:
+a = 4
+b = 17
+c = 13
+
+if a >= b and a >= c:
+  print("a is the greatest number")
+elif b >= c:
+  print("b is the greatest number")
+else:
+  print("c is the greatest number")
+
+fav_animal = 'Beluga'
+zoo_animals = ['Lion', 'Hippopotamus', 'Giraffe', 'Tiger']
+
+if fav_animal in zoo_animals:
+  print("This zoo has my favorite animal!")
+else:
+  print("This zoo doesn't have my favorite animal );")
+
+
+
+grade = 72
+
+# notice how in this example the else statement could be replaced with another elif statement. Both ways are fine, but it is best to use 
+if grade < 70:
+  print("See me after class >:(")
+elif grade >= 70 and grade > 80:
+  print("You passed, but you should probably study more :/")
+elif grade >= 80 and grade < 90:
+  print("Not bad :P. Go for an A next time!")
+else:
+  print("AMAZING :DDDDD")
+
