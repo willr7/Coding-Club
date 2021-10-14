@@ -1,0 +1,58 @@
+Unit 1: Variables
+
+Topics: Integers, Strings, Lists, Booleans
+
+Vocab:
+initialize - set the value of a variable (e.g. x = 5, day = "Thursday", sussy = True)
+conditional statements (conditionals) - statement that is evaluated as true or false
+operators - special symbols that indicate some sort of computation. Five main types: Arithmetic, Assignment, Comparison, Logical, and Membership (don't worry about remembering all of these)
+assignment operator - used to assign a value to a variable (e.g. '=', '+=', '-=')
+arithmetic operators - used with numeric values to perform common mathematical operations (e.g. '+', '-', '*', '%')
+comparison operators - used to compare two values (e.g. '==', '!=', '>', '<=')
+logical operators - used to combine conditional statements ('and', 'or', 'not')
+membership operators - used to check if something is in a list ('in', 'not in')
+concatenation - adding two strings (see line 41)
+method - a function that is available because of an objects type (upper(), lower(), append()) (see line 51)
+index - the position of an element in a list
+
+
+
+Integers
+Any non fraction (5, 40, -29)
+
+how to initialize:
+# stores the value 5 in the variable x
+x = 5
+# the same as x = x + 10
+x += 10
+# returns the remainder of x / 3
+y = x % 3
+
+
+Strings
+letters or symbols enclosed by quotation marks ("Dune", "Sandwich!", "Let's go to the park")
+
+how to initialize:
+generic_greeting = "Hello, how are you?"
+# can be added and multiplied like integers
+# this prints "Hello, how are you? I've been better", try it yourself :D
+print(generic_greeting + " I've been better")
+generic_response = "¯\_(ツ)_/¯"
+# This prints "¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯¯\_(ツ)_/¯", try it yourself ¯\_(ツ)_/¯
+print(generic_response * 5)
+
+How to concatenate:
+# the "\n" starts a new line, try it yourself :))))
+small_talk = generic_greeting + "\n" + generic_response
+name = "shaqiqi"
+print("My name is " + name)
+
+
+Misc info:
+# This will print "Coding club is so much fun"
+real_club_review = "codINg CluB iS sO mUcH FUn"
+print(real_club_review.capitalize())
+# This will print "CODING CLUB IS SO MUCH FUN!"
+print(real_club_review.upper())
+# you can think of a string as a list of characters
+# this means you can access certain elements of a string
