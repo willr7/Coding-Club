@@ -1,1 +1,13 @@
+Unit 3: Functions and Classes
 
+
+Important vocab:
+parameter/argument - a variable that is passed into the parantheses in a function
+return - functions sometimes return something. The return value can be any type of variable, and can be set as equal to a value, used in a conditional, etc.
+calling a function - using a function (ex. max(a, b, c), fizzbuzz(100))
+
+
+
+
+Function
+A function stores a segment of code so that it can be used multiple times by calling the function instead of having to write out the code everytime you want to perform that task
