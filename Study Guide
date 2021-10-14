@@ -6,6 +6,7 @@ Vocab:
 initialize - set the value of a variable (e.g. x = 5, day = "Thursday", sussy = True)
 conditional statements (conditionals) - statement that is evaluated as true or false
 operators - special symbols that indicate some sort of computation. Five main types: Arithmetic, Assignment, Comparison, Logical, and Membership (don't worry about remembering all of these)
+Here is a more comprehensive list of operators: https://www.w3schools.com/python/python_operators.asp
 assignment operator - used to assign a value to a variable (e.g. '=', '+=', '-=')
 arithmetic operators - used with numeric values to perform common mathematical operations (e.g. '+', '-', '*', '%')
 comparison operators - used to compare two values (e.g. '==', '!=', '>', '<=')
@@ -15,6 +16,7 @@ concatenation - adding two strings (see line 41)
 method - a function that is available because of an objects type (upper(), lower(), append()) (see line 51)
 index - the position of an element in a list
 syntax - writing code so that it can be correctly interpreted by your computer
+parameter - the value that is inputted into a function (ex. list.append("green eggs and ham"))
 
 
 
@@ -48,12 +50,15 @@ small_talk = generic_greeting + "\n" + generic_response
 name = "shaqiqi"
 print("My name is " + name)
 
-Misc info:
+List methods:
 # This will print "Coding club is so much fun"
 real_club_review = "codINg CluB iS sO mUcH FUn"
 print(real_club_review.capitalize())
 # This will print "CODING CLUB IS SO MUCH FUN!"
 print(real_club_review.upper())
+# You can find more methods here https://www.w3schools.com/python/python_ref_string.asp
+
+Misc info:
 # you can think of a string as a list of characters (see the lists section for more information)
 # this means you can access certain elements of a string
 print(name[4])
@@ -83,3 +88,51 @@ print("The first three vowels are: " + vowels[:3])
 print("The last three vowels are: " + vowels[2:])
 print("The middle three vowels are: " + vowels[1:4])
 
+Methods 
+try these out yourself :-)
+# adds a value to the end of a list
+.append()
+fruits.append("Goji Berries")
+# removes the last element of a list
+.remove()
+fruits.remove()
+# removes an element at a specified index
+.pop()
+fruits.pop(1)
+# inserts an element at a specified index
+.insert()
+fruits.insert("Camu", 1)
+# sorts a list alphabetically or numerically
+.sort()
+print(fruits.sort())
+# shuffles a list
+.shuffle()
+print(fruits.shuffle())
+# reverses the order of a list
+.reverse()
+print(fruits.reverse())
+# more list methods at https://www.w3schools.com/python/python_ref_list.asp
+
+Range
+range will return a list of a sequence of numbers
+this will be very important when we get to for loops
+range(the first number is the start, the second number is the end, the last number is the step)
+the 'step' means it will count by that number (i.e. if it's a two, range will return a list with every other number from the start to the end, if it is a three it will return a list with every third number, and so on)
+if there is only one parameter, the start is 0 by default, and if there are two parameters, the step is 1 by default
+examples you can try yourself :p 
+print(range(100))
+print(range(50, 100))
+print(range(1, 101))
+print(range(20, 100, 3))
+
+
+
+Booleans
+True or False
+used to store a value that is either true or false
+useful for functions, if statements, and while loops, but we'll get there
+For now it's just important to keep in mind that this is how you initialize a boolean:
+tall = True
+brown_eyes = False
+likes_coding = True
+(keep in mind the capitalization)
