@@ -1,13 +1,101 @@
-Unit 3: Functions and Classes
+Unit 3: Functions
 
 
 Important vocab:
 parameter/argument - a variable that is passed into the parantheses in a function
 return - functions sometimes return something. The return value can be any type of variable, and can be set as equal to a value, used in a conditional, etc.
 calling a function - using a function (ex. max(a, b, c), fizzbuzz(100))
-
-
-
+recursion - a function that calls itself
 
 Function
 A function stores a segment of code so that it can be used multiple times by calling the function instead of having to write out the code everytime you want to perform that task
+It may or may not return a variable
+
+syntax:
+def some_function(parameter1, parameter2...):
+  execute some code
+  return some_value
+  
+examples:
+
+def fizzbuzz(times):
+  for i in range(times):
+    if i % 15 == 0:
+      print("FizzBuzz")
+    elif i % 3 == 0:
+      print("Fizz")
+    elif i % 5 == 0:
+      print("Buzz")
+    else:
+      print(i)
+
+fizzbuzz(100)
+fizzbuzz(300)
+
+# nums is a list of numbers that will be replaced with words
+# words is a list of strings that the numbers that are divisible by nums will be replaced by
+# try using this function yourself to see how it works
+
+def fizzbuzzV2(times, nums, words):
+  for i in range(times):
+  temp = ""
+    for num in nums:
+      if i % num == 0:
+        temp += words[nums.index(num)]
+    if temp == "": 
+      print(i)
+    else: 
+      print(temp)
+      
+fizzbuzzV2(200, [3, 5, 6], ["Sussy", "Baka", "Amogus"])
+fizzbuzzV2(200, [3, 5, 7, 8], ["Sussy", "Baka", "Amogus", "Imposter"])
+
+
+def whale_talk(sent):
+  vowels = ['a', 'e', 'i', 'o', 'u']
+  temp = ""
+  for letter in sent:
+    if letter in vowels:
+      temp += letter * 3
+    else:
+      temp += letter
+  return temp
+
+# when a function calls itself, it is called recursion (this can get confusing)
+# this function will return the xth number in the fibonacci sequence
+def fib_seq(x):
+  if x == 0 or x == 1
+    return 1
+  else:
+    return fib_seq(x) + fib_seq(x - 1)
+
+print(fib_seq(5))
+for i in range(10):
+  print(fib_seq(i))
+
+# this function is also recursive
+def factorial(x):
+  if x == 0:
+    return 1
+  else:
+    return factorial(x-1) * x
+
+response = input("What do you like to do in your freetime? \n")
+print(whale_talk(response))
+
+   
+exercises:
+make a function max() that returns the largest number in a list
+it will take in a list and it will return an integer
+
+# temp is a temporary variable that will store the largest number
+# we don't use max as a variable name because it is generally considered bad practice to use the same name for a variable and a function
+def max(lst):
+  some code
+  return temp
+  
+
+
+
+
+
