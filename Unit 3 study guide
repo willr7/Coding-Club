@@ -61,13 +61,16 @@ def whale_talk(sent):
       temp += letter
   return temp
 
+response = input("What do you like to do in your freetime? \n")
+print(whale_talk(response))
+
 # when a function calls itself, it is called recursion (this can get confusing)
 # this function will return the xth number in the fibonacci sequence
 def fib_seq(x):
-  if x == 0 or x == 1
+  if x == 0 or x == 1:
     return 1
   else:
-    return fib_seq(x) + fib_seq(x - 1)
+    return fib_seq(x - 1) + fib_seq(x - 2)
 
 print(fib_seq(5))
 for i in range(10):
@@ -80,8 +83,6 @@ def factorial(x):
   else:
     return factorial(x-1) * x
 
-response = input("What do you like to do in your freetime? \n")
-print(whale_talk(response))
 
    
 exercises:
