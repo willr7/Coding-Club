@@ -2,17 +2,13 @@ Unit 4 Study Guide
 
 Classes and Objects
 
-Important Vocab:
-
-
-
 Classes:
 A Class is a template that is used to create an object
 An object is a piece of data that can store multiple different types of information which can be accessed and modified
 Functions can be added to a class and those functions will be accessible through each object
 
 Syntax:
-class Class_Name():
+class Class_Name:
   def __init__(self, attribute1, attribute2, attribute3):
     # there will (usually) be values that are different for every object when it is created
     # these values are passed into the class like parameters in a function (see examples)
@@ -48,6 +44,45 @@ This will make more sense after looking at the examples
 
 Examples:
 
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+    
+p1 = Person("Alec", 17)
+
+
+# Example of a class with a function
+class Person:
+  def __init__(self, name, age, height, weight):
+    self.name = name
+    self.age = age
+    self.height
+  
+  def greeting(self):
+    print("Hello, my name is " + self.name)
+  
+p2 = Person("Alec", 17, 90, 35)
+p2.greeting()
+
+
+# Class inheritance
+class Student:
+  def __init__(self, name, age, height, weight, grade, gpa):
+    Person.__init__(name, age, height, weight)
+    
+    self.grade = grade
+    self.gpa = gpa
+  
+  def check_fail(self):
+    return gpa < 2
+    
+s1 = Student("Alec", 17, 190, 70, 12, 5)
+print(s1.check_fail)
+
+
+
+# More complex class
 class Crewmate():
   def __init__(self, ID, height, weight, color, bloodtype):
     self.ID = ID
@@ -81,13 +116,93 @@ Guillaume.height += 1
 
 Guillaume.is_baka = True
 
-Guillaume.check_sussy_baka(
+Guillaume.check_sussy_baka()
+
+
+
+# Example in code:
+https://github.com/willr7/Coding-Projects/blob/main/Learning%20Projects/a_star_pathfinding.py
+
+class Node:
+    def __init__(self, row, col, width, total_rows):
+        self.row = row
+        self.col = col
+        self.x = row * width
+        self.y = col * width
+        self.color = WHITE
+        self.neighbors = []
+        self.width = width
+        self.total_rows = total_rows
+
+    def get_pos(self):
+        return self.row, self.col
+    
+    def is_closed(self):
+        return self.color == RED
+
+    def is_open(self):
+        return self.color == GREEN
+    
+    def is_barrier(self):
+        return self.color == BLACK
+
+    def is_start(self):
+        return self.color == ORANGE
+
+    def is_end(self):
+        return self.color == ORANGE
+
+    def reset(self):
+        self.color = WHITE
+
+    def make_start(self):
+        self.color = ORANGE 
+
+    def make_closed(self):
+        self.color = RED
+
+    def make_open(self):
+        self.color = GREEN
+
+    def make_barrier(self):
+        self.color = BLACK
+
+    def make_end(self):
+        self.color = TURQUOISE
+
+    def make_path(self):
+        self.color = PURPLE
+
+    def draw(self, win):
+        pygame.draw.rect(win, self.color, (self.x, self.y, self.width, self.width))
+
+    def update_neighbors(self, grid):
+        self.neighbors = []
+        if self.row < self.total_rows - 1 and not grid[self.row + 1][self.col].is_barrier(): # Down
+            self.neighbors.append(grid[self.row + 1][self.col])
+
+        if self.row > 0 and not grid[self.row - 1][self.col].is_barrier(): # Up
+            self.neighbors.append(grid[self.row - 1][self.col])
+        
+        if self.col < self.total_rows - 1 and not grid[self.row][self.col + 1].is_barrier(): # Right
+            self.neighbors.append(grid[self.row][self.col + 1])
+        
+        if self.col > 0 and not grid[self.row][self.col - 1].is_barrier(): # Left
+            self.neighbors.append(grid[self.row][self.col - 1])
+
+    def __lt__(self, other):
+        return False
     
     
-    
-    
-    
-    
+Next lesson: Pygame
+
+How to install pygame:
+on vs code, click on the downward arrow next to the play button on the top right
+when the terminal opens, there should be a + on the top right of the window
+click on the downward arrow next to the + and click "command prompt"
+copy and paste python3 -m pip install -U pygame --user into the terminal
+
+email me if you have any questions
     
     
     
