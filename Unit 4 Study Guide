@@ -76,7 +76,7 @@ class Student:
     self.gpa = gpa
   
   def check_fail(self):
-    return gpa < 2
+    return self.gpa < 2
     
 s1 = Student("Alec", 17, 190, 70, 12, 5)
 print(s1.check_fail)
