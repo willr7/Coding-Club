@@ -1,0 +1,94 @@
+Unit 4 Study Guide
+
+Classes and Objects
+
+Important Vocab:
+
+
+
+Classes:
+A Class is a template that is used to create an object
+An object is a piece of data that can store multiple different types of information which can be accessed and modified
+Functions can be added to a class and those functions will be accessible through each object
+
+Syntax:
+class Class_Name():
+  def __init__(self, attribute1, attribute2, attribute3):
+    # there will (usually) be values that are different for every object when it is created
+    # these values are passed into the class like parameters in a function (see examples)
+    self.attribute1 = attribute1
+    self.attribute2 = attribute2
+    self.attribute3 = attribute3
+    
+    # these attributes can also have default values that will be the same for every object when it is first created
+    self.attribute4 = some_value
+    self.attribute5 = some_other_value
+  
+  # you can also add functions
+  # notice how self is used as a parameter for the function
+  def change_attribute1(self, some_attribute):
+    self.attribute1 = some_attribute
+  
+  # class functions don't only have to change attributes of an object
+  # they can also return some value
+  def check_attribute2(self):
+    if self.attribute2 == example_attribute:
+      return True
+    else:
+      return False
+
+# to make an object
+obj = Class_Name(7, "Apples", True)
+
+# to access class functions
+obj.change_attribute1(10)
+print(obj.check_attribute2())
+  
+This will make more sense after looking at the examples
+
+Examples:
+
+class Crewmate():
+  def __init__(self, ID, height, weight, color, bloodtype):
+    self.ID = ID
+    self.height = height
+    self.weight = weight
+    self.color = color
+    self.bloodtype = bloodtype
+    
+    self.is_sussy = False
+    self.is_baka = False
+    self.is_sussy_baka = False
+    
+    self.alive = True
+    
+  def check_sussy_baka(self):
+    if self.is_sussy and self.is_baka:
+      self.is_sussy_baka = True
+    else:
+      self.is_sussy_baka = False
+  
+  def make_dead(self):
+    self.alive = False
+  
+  def change_color(self, color):
+    self.color = color
+    
+Guillaume = Crewmate("Red0", 42, 70, (255, 0, 0), "AB")
+Guillaume.is_sussy = True
+Guillaume.weight = 75
+Guillaume.height += 1
+
+Guillaume.is_baka = True
+
+Guillaume.check_sussy_baka(
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
