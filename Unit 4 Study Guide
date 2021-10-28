@@ -110,14 +110,14 @@ class Crewmate():
   def change_color(self, color):
     self.color = color
     
-Guillaume = Crewmate("Red0", 42, 70, (255, 0, 0), "AB")
-Guillaume.is_sussy = True
-Guillaume.weight = 75
-Guillaume.height += 1
+crew1 = Crewmate("Red0", 42, 70, (255, 0, 0), "AB")
+crew1.is_sussy = True
+crew1.weight = 75
+crew1.height += 1
 
-Guillaume.is_baka = True
+crew1.is_baka = True
 
-Guillaume.check_sussy_baka()
+crew1.check_sussy_baka()
 
 
 
