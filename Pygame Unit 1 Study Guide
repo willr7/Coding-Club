@@ -109,12 +109,16 @@ If we don't add "if __name__ == "__main__"", then the program will run all of th
 This doesn't need to make sense right now, just remember that it is good practice
 
 
-Another thing we can do to make this code cleaner is adding variables that will store the rgb values for some common colors
+Another thing we can do to make this code cleaner is adding variables 
+We will store the rgb values for some common colors
+We will also use variables that will store the height and width of the screen
 This will make it much more convenient to access different colors as we move on
 
 import pygame
 
-WIN = pygame.display.set_mode((600, 600))
+WIDTH = 600
+HEIGHT = 600
+WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
@@ -140,6 +144,7 @@ if __name__ == "__main__":
     main()
 
 Notice how instead of WIN.fill((255, 255, 255)), we have WIN.fill(WHITE)
+Also, we also have a WIDTH and HEIGHT variables to store the width and the height of the screen in pixels
 This makes the code easier to read and easier to write
 
 Now that we've made our code a bit cleaner, we can move on to drawing things to the screen
@@ -157,9 +162,126 @@ to do this, we will use pygame.draw.rect
 pygame.draw.rect takes in a window, a color, and a rect and draws it to the screen
 pygame.draw.rect(WIN, BLUE, sqr)
 
+import pygame
 
+WIN = pygame.display.set_mode((600, 600))
 
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 255, 0)
+YELLOW = (255, 255, 0)
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+PURPLE = (128, 0, 128)
+ORANGE = (255, 165 ,0)
+GREY = (128, 128, 128)
+TURQUOISE = (64, 224, 208)
 
+def main():
+    sqr = pygame.Rect(0, 0, 10, 10)
+    run = True
+    while run:
+        WIN.fill(WHITE)
+        pygame.draw.rect(WIN, BLUE, sqr)
+        pygame.display.update()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
 
+if __name__ == "__main__":
+    main()
 
+Note the order that the program runs
+We write WIN.fill(WHITE) before pygame.draw.rect() because pygame draws things to the screen in the order that they are written
+The code will fill the screen with white first, and then it will draw the sqr rect on top of that
+
+We've gone over how to make a window and how to draw something to the screen, now let's go over how to get mouse and key input
+
+First we will get key input
+There are a few ways to get key input
+The way we will go over stores all of the keys pressed in a variable and then moves the sqaure based off of what keys are pressed
+
+in the while loop, we will make a variable keys_pressed and set it equal to all of the keys pressed in that frame using pygame.key.get_pressed()
+keys_pressed = pygame.key.get_pressed()
+
+now we will check to see if the wasd keys are pressed
+
+if keys_pressed[pygame.K_a]: # LEFT
+    sqr.x -= 2
+if keys_pressed[pygame.K_d]: # RIGHT
+    sqr.x += 2
+if keys_pressed[pygame.K_w]: # UP
+    sqr.y -= 2
+if keys_pressed[pygame.K_s]: # DOWN
+    sqr.y += 2
+
+This code will move the sqr based off of the keys pressed
+notice how we access and change the x and y attributes of the sqr
+We can do this because sqr is an object that stores a width, height, x, and y, so we can change those values with sqr.x, sqr.y, sqr.width, and sqr.height
+Also, notice how to move the sqr down, we add to the y value, and to move the sqr up, we subtract from the y value
+This is because the window is a grid where x = 0 is at the very left and y = 0 is at the very top (keep this in mind)
+
+Before we add this into our code using a move_rect function that will take in a rect and a velocity and move the rect based off of that
+
+def move_sqr(rect, keys_pressed, vel):
+
+    if keys_pressed[pygame.K_a]: # LEFT
+        rect.x -= vel
+    if keys_pressed[pygame.K_d]: # RIGHT
+        rect.x += vel
+    if keys_pressed[pygame.K_w]: # UP
+        rect.y -= vel
+    if keys_pressed[pygame.K_s]: # DOWN
+        rect.y += vel
+
+    return rect
+
+Now, let's implement this into our code
+
+import pygame
+
+WIN = pygame.display.set_mode((600, 600))
+
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
+YELLOW = (255, 255, 0)
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+PURPLE = (128, 0, 128)
+ORANGE = (255, 165 ,0)
+GREY = (128, 128, 128)
+TURQUOISE = (64, 224, 208)
+
+def move_sqr(rect, keys_pressed, vel):
+
+    if keys_pressed[pygame.K_a]: # LEFT
+        rect.x -= vel
+    if keys_pressed[pygame.K_d]: # RIGHT
+        rect.x += vel
+    if keys_pressed[pygame.K_w]: # UP
+        rect.y -= vel
+    if keys_pressed[pygame.K_s]: # DOWN
+        rect.y += vel
+
+    return rect
+
+def main():
+    sqr = pygame.Rect(0, 0, 10, 10)
+    run = True
+    while run:
+        WIN.fill(WHITE)
+        pygame.draw.rect(WIN, BLUE, sqr)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+        
+        KEYS_PRESSED = pygame.key.get_pressed()
+        sqr = move_sqr(sqr, KEYS_PRESSED, 1)
+
+        
+        pygame.display.update()
+
+if __name__ == "__main__":
+    main()
 
