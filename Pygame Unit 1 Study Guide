@@ -1,1 +1,165 @@
+Pygame Unit 1 Study Guide
+
+Important Vocab:
+Rect - A rect is 
+
+
+How to install pygame:
+With internet, open the python terminal in vs code and type "pip install pygame" and hit enter
+If this doesn't work, type "python3 -m pip install -U pygame --user"
+If that still doesn't work, either try to research the error or contact me
+
+Getting Started with pygame:
+Pygame allows you to create a window, draw things in that window, and get key and mouse inputs
+We will start by creating a window
+
+The first step is to import pygame at the top of the code
+to do this, type "import pygame" as the first line of the code
+
+Next, we will create a variable that will store the window
+We will start by creating a variable called "WIN"
+next, we will create the window and set it equal to WIN
+WIN = pygame.display.set_mode((600, 600))
+The (600, 600) is the width and height of the window in pixels
+
+Now that we have the window, we will create a game loop that will refresh the window every frame
+The game loop is a while loop that runs until the game closes
+
+First, we will make a boolean called "run" and it will be initialized to "True"
+run = True
+
+the while loop will run while the variable "run" is true
+while run:
+    execute code
+
+Every frame, we want to set a white background as white and update the window
+while run:
+    WIN.fill((255, 255, 255))
+    pygame.display.update()
+
+If you run the code as it is, there is no way to end the program
+To fix this, we will check to see if the user has closed the game
+while run:
+    WIN.fill((255, 255, 255))
+    pygame.display.update()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+      
+Now we have a for loop that goes through every event that occurs each frame. Some examples of an event are the mouse moving, a key being clicked, or the window being closed
+In this case when the user tries to close the window, the program while loop will end and the program will stop
+
+Here's what your code should look like right now:
+
+import pygame
+
+WIN = pygame.display.set_mode((600, 600))
+
+run = True
+while run:
+    WIN.fill((255, 255, 255))
+    pygame.display.update()
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run = False
+
+
+There are a few things we need to go over before we move on
+First, we should make a "main" function that will execute all of the "main" code every time the code runs
+It is considered good coding practice to have a main function in every somewhat complex program you write
+
+import pygame
+
+WIN = pygame.display.set_mode((600, 600))
+
+def main():
+    run = True
+    while run:
+        WIN.fill((255, 255, 255))
+        pygame.display.update()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+        
+main()
+
+Notice that we call the main function at the end
+Another good coding practice is to add a check to see if the code is being run locally, or if it is being imported
+to do this, we can use an if statement
+
+import pygame
+
+WIN = pygame.display.set_mode((600, 600))
+
+def main():
+    run = True
+    while run:
+        WIN.fill((255, 255, 255))
+        pygame.display.update()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+
+if __name__ == "__main__":
+    main()
+
+if __name__ == "__main__" checks to see if the program is being ran locally, or if it being imported by another program
+Say for example someone wanted to use the functions in this program. They could download the program and import the function the same way that we imported pygame.
+If we don't add "if __name__ == "__main__"", then the program will run all of the code every time the program is run, even if it is imported
+This doesn't need to make sense right now, just remember that it is good practice
+
+
+Another thing we can do to make this code cleaner is adding variables that will store the rgb values for some common colors
+This will make it much more convenient to access different colors as we move on
+
+import pygame
+
+WIN = pygame.display.set_mode((600, 600))
+
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 255, 0)
+YELLOW = (255, 255, 0)
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+PURPLE = (128, 0, 128)
+ORANGE = (255, 165 ,0)
+GREY = (128, 128, 128)
+TURQUOISE = (64, 224, 208)
+
+def main():
+    run = True
+    while run:
+        WIN.fill(WHITE)
+        pygame.display.update()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+
+if __name__ == "__main__":
+    main()
+
+Notice how instead of WIN.fill((255, 255, 255)), we have WIN.fill(WHITE)
+This makes the code easier to read and easier to write
+
+Now that we've made our code a bit cleaner, we can move on to drawing things to the screen
+Pygame has can draw things to the screen by making a Rect
+a rect is just a rectangle that has an x value, a y value, a width, and a height
+
+to make a rect, we use pygame.Rect
+pygame.Rect is a function that takes in a x, y, width, and a height in that order and then returns a Rect
+let's make a variable called sqr and use it to store a 10 by 10 rect at 0, 0
+
+sqr = pygame.Rect(0, 0, 10, 10)
+
+now that we have a rect, let's draw it to the screen
+to do this, we will use pygame.draw.rect
+pygame.draw.rect takes in a window, a color, and a rect and draws it to the screen
+pygame.draw.rect(WIN, BLUE, sqr)
+
+
+
+
+
+
 
